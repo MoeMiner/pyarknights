@@ -30,6 +30,11 @@ class RequestHime:
         self.seqnum += 2
         self._header['seqnum'] = str(self.seqnum)
 
+    def post(self, url, datadict: dict):
+        data = json.dumps(datadict)
+        response = requests.post(url, headers=self._header, data=data)
+        return response
+
     def get_response_status(self, response: requests.Response):
         if not response.status_code == 200:
             return False
