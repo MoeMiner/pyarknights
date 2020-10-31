@@ -5,7 +5,7 @@ class Player:
     def __init__(self, uid: int):
         self.uid = uid
     
-    def importJSON(self, json: dict):
+    def import(self, json: dict):
         if json == None: return False
         self.uid = int(json['uid'])
         self.nickname = json['nickName']
