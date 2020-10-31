@@ -1,7 +1,7 @@
 import requests, json
 
 class RequestHime:
-    def __init__(self, uid, secret, current_seq=0):
+    def __init__(self, uid, secret, device, current_seq=0):
         self.uid = uid
         self.secret = secret
         # for continuing the request.
@@ -14,7 +14,7 @@ class RequestHime:
             'Accept': '*/*',
             'Accept-Language': 'zh-cn',
             'Accept-Encoding': 'gzip, deflate, br',
-            'User-Agent': 'arknights/355 CFNetwork/1125.2',
+            'User-Agent': 'arknights/355 CFNetwork/1125.2 ' + device,
             'Connection': 'keep-alive',
         }
         self.header_put_account(self.uid, self.secret, self.seqnum)
