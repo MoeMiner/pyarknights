@@ -26,7 +26,7 @@ class ArkCharacter:
         self.level = lv
     def setSkinId(self, id):
         self.skinid = id
-    def import(self, json: dict):
+    def importJSON(self, json: dict):
         self.uniqueid = json['charId']
         self.mainSkillLv = json['mainSkillLvl']
         self.evolve = json['evolvePhase']
