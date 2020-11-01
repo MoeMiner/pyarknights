@@ -19,10 +19,10 @@ class RequestHime:
         }
         self.header_put_account(self.uid, self.secret, self.seqnum)
     
-    def header_put_account(self, uid, secret, seqnum):
+    def header_put_account(self, uid, secret):
         if not self._header:
             raise KeyError("Initialize the header first")
-        self._header = dict(**self._header, **{'uid':str(uid), 'secret':secret, 'seqnum': str(seqnum)})
+        self._header = dict(**self._header, **{'uid':str(uid), 'secret':secret})
     
     def header_flush_seqnum(self):
         if not self._header:
