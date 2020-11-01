@@ -2,10 +2,17 @@ import json
 from character import ArkCharacter
 
 class Player:
-    def __init__(self, uid: int):
+    uid: int
+    nickname: str
+    nicknumber: str
+    displayname: str
+    friendlimit: int
+    servername: str
+    level: int
+    lastonline: int
+    def __init__(self, uid=0):
         self.uid = uid
-    
-    def import(self, json: dict):
+    def importJSON(self, json: dict):
         if json == None: return False
         self.uid = int(json['uid'])
         self.nickname = json['nickName']
@@ -28,6 +35,6 @@ class Player:
                 if chara == None:
                     break
                 arkc = ArkCharacter(chara['charId'])
-                arkc.import(chara)
+                arkc.importJSON(chara)
                 self.assist.append(arkc)
         return self
